@@ -23,16 +23,15 @@ class QuoteBox extends React.Component {
     let quoteText = quotesData[this.state.number].quote;
     let author = quotesData[this.state.number].author;
     let tweetCode = encodeURIComponent('"' + quoteText + '" ' + author);
+    let tweetUrl = 'https://twitter.com/intent/tweet?hashtags=quotes&text=';
     return (
       <div id="quote-box">
         <p id="text"><span>"</span>{quoteText}<span>"</span></p>
         <p id="author">{author}</p>
-        <Button id="new-quote" onClick={this.handleClick} variant="outline-primary" style={{float: "right"}}>
+        <Button id="new-quote" onClick={this.handleClick} variant="outline-primary">
           New quote
         </Button>
-        <Button style={{marginLeft: '10px', float: 'left'}} title="Tweet this quote!" variant="outline-primary">
-          <a id="tweet-quote" href={`https://twitter.com/intent/tweet?hashtags=quotes&text=${tweetCode}`} target="_blank"><Twitter /> Tweet</a>
-        </Button>
+        <a id="tweet-quote" role="button" className="btn btn-outline-primary" href={`${tweetUrl + tweetCode}`} target="_blank"><Twitter /> Tweet</a>
       </div>
     );
   }

@@ -52,3 +52,11 @@
   font-size: 0.7em;
 }
 
+#tweet-quote {
+  margin-left: 10px;
+  float: left;
+}
+
+#new-quote {
+  float: right;
+}
