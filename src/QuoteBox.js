@@ -1,7 +1,8 @@
-import quotesData from './QuotesData';
+// import quotesData from './QuotesData';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import {Twitter} from 'react-bootstrap-icons';
+import Data from './data.json';
 
 class QuoteBox extends React.Component {
   constructor(props) {
@@ -13,15 +14,15 @@ class QuoteBox extends React.Component {
   };
 
   handleClick() {
-    let randomNum = Math.floor(Math.random() * quotesData.length);
+    let randomNum = Math.floor(Math.random() * Data.length);
     this.setState({
       number: randomNum
     });
   }
   
   render() {
-    let quoteText = quotesData[this.state.number].quote;
-    let author = quotesData[this.state.number].author;
+    let quoteText = Data[this.state.number].quote;
+    let author = Data[this.state.number].author;
     let tweetCode = encodeURIComponent('"' + quoteText + '" ' + author);
     let tweetUrl = 'https://twitter.com/intent/tweet?hashtags=quotes&text=';
     return (
@@ -31,7 +32,15 @@ class QuoteBox extends React.Component {
         <Button id="new-quote" onClick={this.handleClick} variant="outline-primary">
           New quote
         </Button>
-        <a id="tweet-quote" role="button" className="btn btn-outline-primary" href={`${tweetUrl + tweetCode}`} target="_blank"><Twitter /> Tweet</a>
+        <a 
+          id="tweet-quote" 
+          role="button" 
+          className="btn btn-outline-primary" 
+          href={`${tweetUrl + tweetCode}`} 
+          target="_blank">
+            <Twitter />
+             Tweet
+        </a>
       </div>
     );
   }

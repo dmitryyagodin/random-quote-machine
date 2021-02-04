@@ -1,4 +1,4 @@
-const quotesData = [
+[
   {
     "quote": "I never lose in any argument, because I always make sure that my opponent wins.",
     "author": "Debasish Mridha, M.D."
@@ -19,6 +19,4 @@ const quotesData = [
     "quote": "You are who you are, and no one can change that. So be yourself, because no one can do it better.",
     "author": "Meylin D. Bojorge"
   }
-];
-
-export default quotesData;
+]
